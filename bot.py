@@ -17,7 +17,14 @@ import asyncio
 # BOT TOKEN
 # ==============================
 
-BOT_TOKEN = "8983131069:AAFGwYt8w5ULPIFoZd3Dy6gOF393QxOSwsk"
+import asyncio
+
+
+# ==============================
+# BOT TOKEN
+# ==============================
+
+BOT_TOKEN = os.getenv("8983131069:AAFGwYt8w5ULPIFoZd3Dy6gOF393QxOSwsk")
 
 
 # ==============================
