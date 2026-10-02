@@ -36,13 +36,15 @@ def contains_admin_mention(message):
     if not message.text or not message.entities:
         return False
 
-    text = message.text
+    # Mention must be in a reply
+    if not message.reply_to_message:
+        return False
 
     for entity in message.entities:
 
         if entity.type == "mention":
 
-            username = text[
+            username = message.text[
                 entity.offset:
                 entity.offset + entity.length
             ].lower()
@@ -51,11 +53,6 @@ def contains_admin_mention(message):
                 return True
 
     return False
-
-
-# ==============================
-# FIND TARGET USER
-# ==============================
 
 def get_target_user(message):
 
