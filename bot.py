@@ -26,6 +26,7 @@ import asyncio
 # ==============================
 
 BOT_TOKEN = os.getenv("8983131069:AAFGwYt8w5ULPIFoZd3Dy6gOF393QxOSwsk")
+print("BOT_TOKEN loaded:", bool(BOT_TOKEN), "length:", len(BOT_TOKEN or ""))
 
 
 # ==============================
