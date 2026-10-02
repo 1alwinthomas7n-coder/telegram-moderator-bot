@@ -33,31 +33,22 @@ active_votes = {}
 
 def contains_admin_mention(message):
 
-    text = message.text or ""
-    lower_text = text.lower()
+    if not message.text or not message.entities:
+        return False
 
-    if "@admin" in lower_text:
-        return True
+    text = message.text
 
-    if "@admins" in lower_text:
-        return True
+    for entity in message.entities:
 
-    if message.entities:
+        if entity.type == "mention":
 
-        for entity in message.entities:
+            username = text[
+                entity.offset:
+                entity.offset + entity.length
+            ].lower()
 
-            if entity.type == "mention":
-
-                username = text[
-                    entity.offset:
-                    entity.offset + entity.length
-                ].lower()
-
-                if username in [
-                    "@admin",
-                    "@admins"
-                ]:
-                    return True
+            if username in ["@admin", "@admins"]:
+                return True
 
     return False
 
