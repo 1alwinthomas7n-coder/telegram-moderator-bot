@@ -434,7 +434,7 @@ async def handle_vote(
                 e
             )
 
-         await context.bot.send_message(
+        await context.bot.send_message(
 
             chat_id=vote["chat_id"],
 
