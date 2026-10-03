@@ -239,26 +239,7 @@ async def handle_message(
     # SAVE VOTE
     # ==============================
 
-    active_votes[vote_id] = {
-
-        "chat_id": message.chat.id,
-
-        "target_user_id": target_user.id,
-
-        "target_name": target_name,
-
-        "reporter_name": reporter_name,
-
-        "report_message_id": message.message_id,
-
-        "vote_message_id": None,
-
-        "yes_votes": set(),
-
-        "no_votes": set(),
-
-        "finished": False
-    }
+    yes_votes
 
     vote = active_votes[vote_id]
 
@@ -452,6 +433,16 @@ async def handle_vote(
                 "DELETE ERROR:",
                 e
             )
+
+         await context.bot.send_message(
+
+            chat_id=vote["chat_id"],
+
+            text=(
+                "🚫 ALL BAN\n\n"
+                f"👤 {vote['target_name']} has been banned by the group vote."
+            )
+        )
 
         return
 
