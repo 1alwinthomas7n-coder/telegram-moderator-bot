@@ -239,7 +239,6 @@ async def handle_message(
     # SAVE VOTE
     # ==============================
 
-    yes_votes
 
     vote = active_votes[vote_id]
 
