@@ -239,6 +239,24 @@ async def handle_message(
     # SAVE VOTE
     # ==============================
 
+    active_votes[vote_id] = {
+
+        "chat_id": message.chat.id,
+
+        "target_user_id": target_user.id,
+
+        "target_name": target_name,
+
+        "reporter_name": reporter_name,
+
+        "yes_votes": set(),
+
+        "no_votes": set(),
+
+        "vote_message_id": None,
+
+        "finished": False
+    }
 
     vote = active_votes[vote_id]
 
