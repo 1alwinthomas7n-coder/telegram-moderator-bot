@@ -126,10 +126,8 @@ def create_vote_text(vote):
 
     total_votes = yes_count + no_count
 
-    percentage = min(
-        (total_votes / 3) * 100,
-        100
-    )
+    yes_percentage = (yes_count / 3) * 100
+    no_percentage = (no_count / 3) * 100
 
     target_name = vote["target_name"]
     reporter_name = vote["reporter_name"]
@@ -141,10 +139,10 @@ def create_vote_text(vote):
         f"👤 Target: {target_name}\n"
         f"🛡 Reported by: {reporter_name}\n\n"
         f"Should **{target_name}** be removed from the group?\n\n"
-        f"{bar}  **{percentage:.1f}%**\n"
-        f"🗳 Votes: **{total_votes}/3**\n\n"
-        f"🟢 YES: **{yes_count}**\n"
-        f"🔴 NO: **{no_count}**\n\n"
+        f"{bar}\n"
+        f"🟢 YES — **{yes_count} votes — {yes_percentage:.1f}%**\n"
+        f"🔴 NO — **{no_count} votes — {no_percentage:.1f}%**\n\n"
+        f"🗳 Total Votes: **{total_votes}/3**\n\n"
         "You can vote using the buttons below."
     )
 
